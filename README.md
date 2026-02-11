@@ -9,6 +9,7 @@ Game turn-based console berbasis Java yang mendemonstrasikan implementasi **3 De
 3. **Command Pattern** (Behavioral) - Mengenkapsulasi aksi battle sebagai objek
 
 **Fitur Game:**
+
 - 2 Player dengan character berbeda (Warrior: HP 150, Attack 20 | Mage: HP 100, Attack 30)
 - Aksi per turn: Basic Attack atau Use Skill (dengan decorator effects)
 - Battle otomatis bergantian sampai salah satu HP ≤ 0
@@ -47,7 +48,6 @@ com.game/
 └── Main.java                        (Entry Point - Refactored)
 ```
 
-
 ---
 
 ## 🔗 Bagaimana Ketiga Pattern Bekerja Bersama
@@ -55,6 +55,7 @@ com.game/
 ### Alur Integrasi:
 
 **1. Factory Method** membuat Characters
+
 ```java
 CharacterCreator warriorFactory = new WarriorCreator();
 Character player1 = warriorFactory.orderCharacter("Aragorn");
@@ -62,6 +63,7 @@ Character player1 = warriorFactory.orderCharacter("Aragorn");
 ```
 
 **2. Decorator** menghias Skills secara dinamis
+
 ```java
 Skill base = new Fireball(30);
 Skill decorated = new DamageBoostDecorator(base, 10);
@@ -70,6 +72,7 @@ decorated = new CriticalHitDecorator(decorated, 0.3);
 ```
 
 **3. Command** mengenkapsulasi aksi dan dieksekusi via Invoker
+
 ```java
 Command skillCmd = new UseSkillCommand(attacker, target, decoratedSkill);
 battleManager.executeCommand(skillCmd);
@@ -77,6 +80,7 @@ battleManager.executeCommand(skillCmd);
 ```
 
 ### Flow Lengkap:
+
 ```
 Factory Method → Character (Warrior/Mage)
                      ↓
@@ -94,16 +98,19 @@ BattleManager (Invoker) → execute & track history
 ## 🚀 Cara Menjalankan
 
 ### Compile:
+
 ```bash
 javac com/game/Main.java com/game/**/*.java
 ```
 
 ### Run:
+
 ```bash
 java com.game.Main
 ```
 
 ### Atau gunakan batch files:
+
 ```bash
 compile.bat   # Windows
 run.bat       # Windows
@@ -166,22 +173,8 @@ Gandalf (Mage) - HP: 100/100, Attack: 30
 ## 📝 Catatan Implementasi
 
 ### Design Principles:
+
 - **SOLID Principles**: Single Responsibility, Open/Closed, Liskov Substitution, Interface Segregation, Dependency Inversion
 - **Clean Code**: No magic numbers (semua di `GameConstants`), input validation lengkap, type-safe dengan enums
 - **Separation of Concerns**: `ConsoleDisplay` untuk UI, `SkillBuilder` untuk skill creation, `BattleManager` untuk battle logic
 - **No External Dependencies**: Hanya Java standard library
-
-### Key Improvements:
-- ✅ Extensibility: Mudah tambah character/skill/command baru tanpa ubah existing code
-- ✅ Testability: Setiap component dapat di-test secara isolated
-- ✅ Maintainability: Clear package structure, focused methods (max 15 lines)
-- ✅ Type Safety: `CharacterType` enum menggantikan string literals
-
-### Dokumentasi Lengkap:
-- `LAPORAN_AKADEMIK_RINGKAS.md` - Laporan formal untuk submission
-- `CLEAN_CODE_IMPROVEMENTS.md` - Detail clean code refactoring
-- `CLASS_DIAGRAM.md` - Diagram UML ASCII lengkap
-
----
-
-**Project ini siap untuk production deployment dan academic submission** ✅
