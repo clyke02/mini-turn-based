@@ -20,32 +20,32 @@ Game turn-based console berbasis Java yang mendemonstrasikan implementasi **3 De
 ```
 com.game/
 ├── character/
-│   ├── Character.java              (Abstract Product)
-│   ├── CharacterType.java          (Enum - Type Safety) ✨ NEW
-│   ├── Warrior.java                (Concrete Product)
-│   ├── Mage.java                   (Concrete Product)
-│   ├── CharacterCreator.java       (Abstract Creator - Factory Method)
-│   ├── WarriorCreator.java         (Concrete Creator)
-│   └── MageCreator.java            (Concrete Creator)
+│   ├── Character.java
+│   ├── CharacterType.java
+│   ├── Warrior.java
+│   ├── Mage.java
+│   ├── CharacterCreator.java
+│   ├── WarriorCreator.java
+│   └── MageCreator.java
 │
 ├── skill/
-│   ├── Skill.java                  (Component Interface)
-│   ├── SkillBuilder.java           (Skill Creation Logic) ✨ NEW
-│   ├── BasicAttackSkill.java       (Concrete Component)
-│   ├── Fireball.java               (Concrete Component)
-│   ├── SkillDecorator.java         (Abstract Decorator)
-│   ├── DamageBoostDecorator.java   (Concrete Decorator)
-│   └── CriticalHitDecorator.java   (Concrete Decorator)
+│   ├── Skill.java
+│   ├── SkillBuilder.java
+│   ├── BasicAttackSkill.java
+│   ├── Fireball.java
+│   ├── SkillDecorator.java
+│   ├── DamageBoostDecorator.java
+│   └── CriticalHitDecorator.java
 │
 ├── battle/
-│   ├── Command.java                (Command Interface)
-│   ├── AttackCommand.java          (Concrete Command)
-│   ├── UseSkillCommand.java        (Concrete Command)
-│   └── BattleManager.java          (Invoker)
+│   ├── Command.java
+│   ├── AttackCommand.java
+│   ├── UseSkillCommand.java
+│   └── BattleManager.java
 │
-├── GameConstants.java              (Constants - No Magic Numbers) ✨ NEW
-├── ConsoleDisplay.java             (Presentation Layer) ✨ NEW
-└── Main.java                        (Entry Point - Refactored)
+├── GameConstants.java
+├── ConsoleDisplay.java
+└── Main.java
 ```
 
 ---
