@@ -11,16 +11,8 @@ package com.game.character;
  */
 public abstract class CharacterCreator {
     
-    /**
-     * Factory Method - harus diimplementasi oleh concrete creator
-     * @param name nama character yang akan dibuat
-     * @return instance dari Character
-     */
     public abstract Character createCharacter(String name);
     
-    /**
-     * Template method yang menggunakan factory method
-     */
     public Character orderCharacter(String name) {
         Character character = createCharacter(name);
         System.out.println("[FACTORY] Character created: " + character.toString());
